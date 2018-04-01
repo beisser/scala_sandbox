@@ -2,6 +2,7 @@
   * 03 FUNCTIONS IN SCALA
   */
 
+
 // 03-01 defining a function
   def testMethod(param1: Int, param2: Int):Int = {
     if (param1 > param2) {
@@ -23,7 +24,12 @@
   sideEffMethod()
 
 
-// 03-04 operator notation
+// 03-05 operator notation
+//    All operations are method calls in scala
+//    this line actually is the same as the next line
+  val operatorNotation = 1 + 2
+  val methodNotation = 1.+(2)
+
 //  methods can be called with a space between the params instead of a dot
   case class OperatorExample() {
 
@@ -50,3 +56,12 @@
   def namedMethod(param1: Int, param2: Int):Int = if (param1 > param2) param1 else param2
 
 
+// 03-06 apply method
+//    method which can be used as a "default" method of an object
+//    can be called with the instance name only
+case class ApplyExample() {
+  def apply(param1: String): String = "test apply" + param1
+}
+
+val testApply = ApplyExample()
+testApply("test")
